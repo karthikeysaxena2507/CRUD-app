@@ -2,8 +2,8 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "personsDB",
-    "host": "127.0.0.1",
+    "database": "whatsappdb",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
