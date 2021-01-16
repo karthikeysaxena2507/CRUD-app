@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../database/connection");
 
-const Endpoint = sequelize.define("endpoint", {
-  endpointid: {
+const Endpoint = sequelize.define("tbl_endpoint_tables", {
+  id: {
     autoIncrement: true,
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -12,20 +12,6 @@ const Endpoint = sequelize.define("endpoint", {
     type: Sequelize.STRING(255),
     allowNull: false
   }
-}, {
-  sequelize,
-  tableName: 'endpoints',
-  timestamps: false,
-  indexes: [
-    {
-      name: "PRIMARY",
-      unique: true,
-      using: "BTREE",
-      fields: [
-        { name: "endpointid" },
-      ]
-    },
-  ]
 });
 
 module.exports = Endpoint;

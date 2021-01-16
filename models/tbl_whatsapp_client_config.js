@@ -1,22 +1,22 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../database/connection");
 
-const Client = sequelize.define("client", {
-  clientid: {
+const Client = sequelize.define("tbl_whatsapp_client_configs", {
+  id: {
     autoIncrement: true,
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true
   },
-  appid: {
+  app_id: {
     type: Sequelize.STRING(255),
     allowNull: false
   },
-  apikey: {
+  api_key: {
     type: Sequelize.STRING(255),
     allowNull: false
   },
-  issuedTo: {
+  issued_to: {
     type: Sequelize.STRING(255),
     allowNull: false
   },
@@ -28,26 +28,18 @@ const Client = sequelize.define("client", {
     type: Sequelize.STRING(255),
     allowNull: true
   },
-  templateName: {
+  template_name: {
     type: Sequelize.STRING(255),
     allowNull: true
+  },
+  org_id: {
+    type: Sequelize.STRING(255),
+    allowNull: true
+  },
+  is_active: {
+    type: Sequelize.TINYINT,
+    allowNull: false
   }
-}, {
-  sequelize,
-  tableName: 'clients',
-  timestamps: false,
-  indexes: [
-    {
-      name: "PRIMARY",
-      unique: true,
-      using: "BTREE",
-      fields: [
-        { name: "appid" },
-      ]
-    },
-  ]
 });
-
-// Client.sync();
 
 module.exports = Client;
